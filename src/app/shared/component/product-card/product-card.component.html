@@ -1,0 +1,22 @@
+
+<mat-card class="mb-4">
+    <mat-card-header>
+        <mat-card-title>
+            {{product.pname}}
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <p>
+            you have selected {{product.pname}} and the status of the product is 
+            <strong>
+                {{product.pstatus}}
+            </strong>
+        </p>
+    </mat-card-content>
+    <mat-divider></mat-divider>
+    <mat-card-actions class="d-flex justify-content-between">
+        <button mat-raised-button color="primary">In progress</button>
+        <button mat-raised-button color="primary">Dispatched</button>
+        <button mat-raised-button color="primary">Delivered</button>
+    </mat-card-actions>
+</mat-card>
