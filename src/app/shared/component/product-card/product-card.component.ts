@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Iproduct } from '../../model/product';
+import { Iproduct, ProductStatus } from '../../model/product';
+import { ProductService } from '../../service/product.service';
 
 @Component({
   selector: 'app-product-card',
@@ -9,9 +10,22 @@ import { Iproduct } from '../../model/product';
 export class ProductCardComponent implements OnInit {
 
 @Input() product ! : Iproduct
-  constructor() { }
+  constructor(
+    private _productService: ProductService
+  ) { }
 
   ngOnInit(): void {
   }
+
+  onProgressUpdate(){
+      this._productService.upadatedStatus(this.product.id, ProductStatus.InProgress)
+  }
+  onDispatchedUpdate(){
+    this._productService.upadatedStatus(this.product.id, ProductStatus.Dispatched)
+  }
+  onDeliveredUpdate(){
+    this._productService.upadatedStatus(this.product.id, ProductStatus.Delivered)
+  }
+
 
 }

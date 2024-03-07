@@ -12,7 +12,10 @@ import { ProductService } from '../../service/product.service';
 })
 export class ProductFormComponent implements OnInit {
   productForm ! : FormGroup
-  constructor(private _uuidService: UuidService) { }
+  constructor(
+    private _uuidService: UuidService,
+    private _productService: ProductService
+    ) { }
 
   ngOnInit(): void {
     this.createForm()
@@ -31,9 +34,11 @@ export class ProductFormComponent implements OnInit {
         id: this._uuidService.uuid(),
         pstatus: ProductStatus.InProgress
       }
+      this.productForm.reset()
+      this.productForm.reset();
       console.log(this.productForm.value);
-      console.log(product);
-      
+      console.log(product);     
+      this._productService.addProduct(product)
     }
 
   }

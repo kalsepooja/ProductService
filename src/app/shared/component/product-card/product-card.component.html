@@ -15,8 +15,8 @@
     </mat-card-content>
     <mat-divider></mat-divider>
     <mat-card-actions class="d-flex justify-content-between">
-        <button mat-raised-button color="primary">In progress</button>
-        <button mat-raised-button color="primary">Dispatched</button>
-        <button mat-raised-button color="primary">Delivered</button>
+        <button mat-raised-button color="primary" (click)="onProgressUpdate()">In progress</button>
+        <button mat-raised-button color="primary" (click)="onDispatchedUpdate()">Dispatched</button>
+        <button mat-raised-button color="primary"(click)="onDeliveredUpdate()">Delivered</button>
     </mat-card-actions>
 </mat-card>
